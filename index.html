@@ -22,13 +22,26 @@
       position: relative;
       width: 100%;
       max-width: 680px;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding-bottom: 60px;
     }
 
-    /* App cards floating above */
+    /* Robot as background wallpaper in bottom half */
+    .robot-bg {
+      position: fixed;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 520px;
+      max-width: 90vw;
+      z-index: 0;
+      opacity: 0.9;
+      filter: drop-shadow(0 -10px 60px rgba(240,120,80,0.2));
+      pointer-events: none;
+    }
+
+    /* Cards sit in upper portion, above robot */
     .cards-area {
       position: relative;
       z-index: 2;
@@ -37,16 +50,20 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
+      margin-top: auto;
+      /* push cards to sit right above robot head */
+      padding-bottom: 300px;
     }
 
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #bbb;
-      margin-bottom: 16px;
+    .studio-name {
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      color: #ccc;
       text-align: center;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .app-card {
@@ -57,13 +74,13 @@
       display: flex;
       align-items: center;
       gap: 18px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
       transition: box-shadow 0.2s, transform 0.2s;
       text-decoration: none;
       color: inherit;
     }
     .app-card:hover {
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.13);
       transform: translateY(-3px);
     }
     .app-icon {
@@ -90,56 +107,16 @@
     }
     .arrow { font-size: 20px; color: #ccc; flex-shrink: 0; }
 
-    /* Connector line from cards down to robot */
-    .connector {
-      width: 3px;
-      height: 48px;
-      background: linear-gradient(to bottom, #e0d8d0, transparent);
-      border-radius: 2px;
-      z-index: 2;
-      margin: 0 auto;
-    }
-
-    /* Robot hero */
-    .robot-area {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .robot-img {
-      width: 260px;
-      height: 260px;
-      object-fit: contain;
-      filter: drop-shadow(0 20px 40px rgba(240,120,80,0.25));
-    }
-    .studio-name {
-      font-family: 'Nunito', sans-serif;
-      font-size: 18px;
-      font-weight: 800;
-      color: #bbb;
-      margin-top: 12px;
-      letter-spacing: 0.5px;
-    }
-
-    footer {
-      font-size: 11px;
-      color: #ccc;
-      padding: 16px;
-      margin-top: auto;
-    }
-
     @media (max-width: 480px) {
-      .robot-img { width: 200px; height: 200px; }
-      .app-card { gap: 12px; }
+      .robot-bg { width: 100vw; bottom: -20px; }
+      .cards-area { padding-bottom: 240px; }
     }
   </style>
 </head>
 <body>
   <div class="scene">
     <div class="cards-area">
-      <div class="section-label">Apps</div>
+      <div class="studio-name">Tinkerbot Studios</div>
 
       <a class="app-card" href="https://mise-en-stock.vercel.app/" target="_blank">
         <div class="app-icon mise">🥫</div>
@@ -160,14 +137,7 @@
       </a>
     </div>
 
-    <div class="connector"></div>
-
-    <div class="robot-area">
-      <img class="robot-img" src="https://raw.githubusercontent.com/gyeung03/tinkerbot-studios/main/Tinkerbot.png" alt="Tinkerbot Studios"/>
-      <div class="studio-name">Tinkerbot Studios</div>
-    </div>
+    <img class="robot-bg" src="https://raw.githubusercontent.com/gyeung03/tinkerbot-studios/main/Tinkerbot.png" alt="Tinkerbot"/>
   </div>
-
-  <footer>© 2026 Tinkerbot Studios</footer>
 </body>
 </html>
