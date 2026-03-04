@@ -15,38 +15,23 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      overflow-x: hidden;
     }
 
     .scene {
-      position: relative;
       width: 100%;
       max-width: 680px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-bottom: 60px;
+      padding: 48px 24px 60px;
     }
 
-    /* App cards floating above */
     .cards-area {
-      position: relative;
-      z-index: 2;
       width: 100%;
-      padding: 48px 24px 0;
       display: flex;
       flex-direction: column;
       gap: 14px;
-    }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #bbb;
-      margin-bottom: 16px;
-      text-align: center;
+      margin-bottom: 0;
     }
 
     .app-card {
@@ -57,14 +42,14 @@
       display: flex;
       align-items: center;
       gap: 18px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
       transition: box-shadow 0.2s, transform 0.2s;
       text-decoration: none;
       color: inherit;
     }
     .app-card:hover {
-      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      transform: translateY(-2px);
     }
     .app-icon {
       width: 56px; height: 56px;
@@ -90,57 +75,41 @@
     }
     .arrow { font-size: 20px; color: #ccc; flex-shrink: 0; }
 
-    /* Connector line from cards down to robot */
     .connector {
-      width: 3px;
-      height: 48px;
-      background: linear-gradient(to bottom, #e0d8d0, transparent);
+      width: 2px;
+      height: 24px;
+      background: linear-gradient(to bottom, #ddd, transparent);
       border-radius: 2px;
-      z-index: 2;
       margin: 0 auto;
     }
 
-    /* Robot hero */
     .robot-area {
-      position: relative;
-      z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 6px;
     }
+
     .robot-img {
-      width: 260px;
-      height: 260px;
+      width: 180px;
+      height: 180px;
       object-fit: contain;
-      filter: drop-shadow(0 20px 40px rgba(240,120,80,0.25));
+      filter: drop-shadow(0 10px 30px rgba(240,120,80,0.2));
     }
+
     .studio-name {
       font-family: 'Nunito', sans-serif;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 800;
-      color: #bbb;
-      margin-top: 12px;
-      letter-spacing: 0.5px;
-    }
-
-    footer {
-      font-size: 11px;
       color: #ccc;
-      padding: 16px;
-      margin-top: auto;
-    }
-
-    @media (max-width: 480px) {
-      .robot-img { width: 200px; height: 200px; }
-      .app-card { gap: 12px; }
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
   </style>
 </head>
 <body>
   <div class="scene">
     <div class="cards-area">
-      <div class="section-label">Apps</div>
-
       <a class="app-card" href="https://mise-en-stock.vercel.app/" target="_blank">
         <div class="app-icon mise">🥫</div>
         <div class="app-info">
@@ -163,11 +132,9 @@
     <div class="connector"></div>
 
     <div class="robot-area">
-      <img class="robot-img" src="https://raw.githubusercontent.com/gyeung03/tinkerbot-studios/main/Tinkerbot.png" alt="Tinkerbot Studios"/>
+      <img class="robot-img" src="https://raw.githubusercontent.com/gyeung03/tinkerbot-studios/main/Tinkerbot.png" alt="Tinkerbot"/>
       <div class="studio-name">Tinkerbot Studios</div>
     </div>
   </div>
-
-  <footer>© 2026 Tinkerbot Studios</footer>
 </body>
 </html>
