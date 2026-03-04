@@ -7,84 +7,70 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body {
-      height: 100%;
+    body {
       font-family: 'Inter', sans-serif;
       background: #f7f4f0;
-      overflow: hidden;
-    }
-
-    .page {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
+      color: #1a1a1a;
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
-    /* Giant robot fills the page */
-    .robot-bg {
-      position: absolute;
-      width: 130vmin;
-      height: 130vmin;
-      bottom: -30vmin;
-      left: 50%;
-      transform: translateX(-50%);
-      object-fit: contain;
-      z-index: 0;
-      filter: drop-shadow(0 -20px 80px rgba(240,120,80,0.3));
-      pointer-events: none;
+    .scene {
+      position: relative;
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 60px;
     }
 
-    /* Cards positioned inside the robot circle, around face area */
+    /* App cards floating above */
     .cards-area {
       position: relative;
       z-index: 2;
       width: 100%;
-      max-width: 420px;
-      padding: 0 20px;
+      padding: 48px 24px 0;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-top: -20vmin;
+      gap: 14px;
     }
 
-    .studio-name {
-      font-family: 'Nunito', sans-serif;
-      font-size: 13px;
-      font-weight: 800;
-      color: rgba(255,255,255,0.7);
-      text-align: center;
-      margin-bottom: 16px;
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
+      color: #bbb;
+      margin-bottom: 16px;
+      text-align: center;
     }
 
     .app-card {
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      border-radius: 18px;
-      padding: 18px 20px;
-      border: 1.5px solid rgba(255,255,255,0.8);
+      background: white;
+      border-radius: 20px;
+      padding: 22px;
+      border: 1.5px solid #ede8e2;
       display: flex;
       align-items: center;
-      gap: 16px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      gap: 18px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
       transition: box-shadow 0.2s, transform 0.2s;
       text-decoration: none;
       color: inherit;
     }
     .app-card:hover {
-      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      transform: translateY(-3px);
     }
     .app-icon {
-      width: 50px; height: 50px;
-      border-radius: 12px;
+      width: 56px; height: 56px;
+      border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 24px;
+      font-size: 26px;
       flex-shrink: 0;
     }
     .app-icon.mise { background: #ede8f5; }
@@ -92,25 +78,68 @@
     .app-info { flex: 1; min-width: 0; }
     .app-name {
       font-family: 'Nunito', sans-serif;
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 800;
       color: #1a1a1a;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
     .app-desc {
-      font-size: 11px;
+      font-size: 12px;
       color: #999;
-      line-height: 1.4;
+      line-height: 1.5;
     }
-    .arrow { font-size: 18px; color: #ccc; flex-shrink: 0; }
+    .arrow { font-size: 20px; color: #ccc; flex-shrink: 0; }
+
+    /* Connector line from cards down to robot */
+    .connector {
+      width: 3px;
+      height: 48px;
+      background: linear-gradient(to bottom, #e0d8d0, transparent);
+      border-radius: 2px;
+      z-index: 2;
+      margin: 0 auto;
+    }
+
+    /* Robot hero */
+    .robot-area {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .robot-img {
+      width: 260px;
+      height: 260px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 40px rgba(240,120,80,0.25));
+    }
+    .studio-name {
+      font-family: 'Nunito', sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      color: #bbb;
+      margin-top: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    footer {
+      font-size: 11px;
+      color: #ccc;
+      padding: 16px;
+      margin-top: auto;
+    }
+
+    @media (max-width: 480px) {
+      .robot-img { width: 200px; height: 200px; }
+      .app-card { gap: 12px; }
+    }
   </style>
 </head>
 <body>
-  <div class="page">
-    <img class="robot-bg" src="https://raw.githubusercontent.com/gyeung03/tinkerbot-studios/main/Tinkerbot.png" alt="Tinkerbot"/>
-
+  <div class="scene">
     <div class="cards-area">
-      <div class="studio-name">Tinkerbot Studios</div>
+      <div class="section-label">Apps</div>
 
       <a class="app-card" href="https://mise-en-stock.vercel.app/" target="_blank">
         <div class="app-icon mise">🥫</div>
@@ -130,6 +159,15 @@
         <div class="arrow">›</div>
       </a>
     </div>
+
+    <div class="connector"></div>
+
+    <div class="robot-area">
+      <img class="robot-img" src="https://raw.githubusercontent.com/gyeung03/tinkerbot-studios/main/Tinkerbot.png" alt="Tinkerbot Studios"/>
+      <div class="studio-name">Tinkerbot Studios</div>
+    </div>
   </div>
+
+  <footer>© 2026 Tinkerbot Studios</footer>
 </body>
 </html>
