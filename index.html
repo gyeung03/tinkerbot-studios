@@ -7,87 +7,84 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
+    html, body {
+      height: 100%;
       font-family: 'Inter', sans-serif;
       background: #f7f4f0;
-      color: #1a1a1a;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      overflow-x: hidden;
+      overflow: hidden;
     }
 
-    .scene {
+    .page {
       position: relative;
-      width: 100%;
-      max-width: 680px;
-      min-height: 100vh;
+      width: 100vw;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    /* Robot as background wallpaper in bottom half */
+    /* Giant robot fills the page */
     .robot-bg {
-      position: fixed;
-      bottom: -40px;
+      position: absolute;
+      width: 130vmin;
+      height: 130vmin;
+      bottom: -30vmin;
       left: 50%;
       transform: translateX(-50%);
-      width: 520px;
-      max-width: 90vw;
+      object-fit: contain;
       z-index: 0;
-      opacity: 0.9;
-      filter: drop-shadow(0 -10px 60px rgba(240,120,80,0.2));
+      filter: drop-shadow(0 -20px 80px rgba(240,120,80,0.3));
       pointer-events: none;
     }
 
-    /* Cards sit in upper portion, above robot */
+    /* Cards positioned inside the robot circle, around face area */
     .cards-area {
       position: relative;
       z-index: 2;
       width: 100%;
-      padding: 48px 24px 0;
+      max-width: 420px;
+      padding: 0 20px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      margin-top: auto;
-      /* push cards to sit right above robot head */
-      padding-bottom: 300px;
+      gap: 12px;
+      margin-top: -20vmin;
     }
 
     .studio-name {
       font-family: 'Nunito', sans-serif;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 800;
-      color: #ccc;
+      color: rgba(255,255,255,0.7);
       text-align: center;
-      margin-bottom: 24px;
-      letter-spacing: 1px;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
       text-transform: uppercase;
     }
 
     .app-card {
-      background: white;
-      border-radius: 20px;
-      padding: 22px;
-      border: 1.5px solid #ede8e2;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-radius: 18px;
+      padding: 18px 20px;
+      border: 1.5px solid rgba(255,255,255,0.8);
       display: flex;
       align-items: center;
-      gap: 18px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      gap: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
       transition: box-shadow 0.2s, transform 0.2s;
       text-decoration: none;
       color: inherit;
     }
     .app-card:hover {
-      box-shadow: 0 8px 32px rgba(0,0,0,0.13);
-      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      transform: translateY(-2px);
     }
     .app-icon {
-      width: 56px; height: 56px;
-      border-radius: 14px;
+      width: 50px; height: 50px;
+      border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 26px;
+      font-size: 24px;
       flex-shrink: 0;
     }
     .app-icon.mise { background: #ede8f5; }
@@ -95,26 +92,23 @@
     .app-info { flex: 1; min-width: 0; }
     .app-name {
       font-family: 'Nunito', sans-serif;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 800;
       color: #1a1a1a;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
     .app-desc {
-      font-size: 12px;
+      font-size: 11px;
       color: #999;
-      line-height: 1.5;
+      line-height: 1.4;
     }
-    .arrow { font-size: 20px; color: #ccc; flex-shrink: 0; }
-
-    @media (max-width: 480px) {
-      .robot-bg { width: 100vw; bottom: -20px; }
-      .cards-area { padding-bottom: 240px; }
-    }
+    .arrow { font-size: 18px; color: #ccc; flex-shrink: 0; }
   </style>
 </head>
 <body>
-  <div class="scene">
+  <div class="page">
+    <img class="robot-bg" src="https://raw.githubusercontent.com/gyeung03/tinkerbot-studios/main/Tinkerbot.png" alt="Tinkerbot"/>
+
     <div class="cards-area">
       <div class="studio-name">Tinkerbot Studios</div>
 
@@ -136,8 +130,6 @@
         <div class="arrow">›</div>
       </a>
     </div>
-
-    <img class="robot-bg" src="https://raw.githubusercontent.com/gyeung03/tinkerbot-studios/main/Tinkerbot.png" alt="Tinkerbot"/>
   </div>
 </body>
 </html>
