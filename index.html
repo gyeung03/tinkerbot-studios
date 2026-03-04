@@ -4,30 +4,37 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tinkerbot Studios</title>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Inter', sans-serif;
-      background: #f5ede6;
+      background: #f7f4f0;
       color: #1a1a1a;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
     header {
-      padding: 48px 24px 40px;
-      text-align: center;
-      background: linear-gradient(135deg, #f7a07a 0%, #f4735a 50%, #e85d45 100%);
-      border-bottom: none;
-    }
-    .logo {
-      width: 180px; height: 180px;
+      max-width: 680px;
       margin: 0 auto;
+      width: 100%;
+      padding: 32px 24px 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
     .logo img {
-      width: 100%; height: 100%;
+      width: 52px;
+      height: 52px;
       object-fit: contain;
+    }
+    .studio-name {
+      font-family: 'Nunito', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #1a1a1a;
+      line-height: 1.1;
     }
     main {
       flex: 1;
@@ -41,110 +48,101 @@
       font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: #aaa;
-      margin-bottom: 20px;
+      color: #bbb;
+      margin-bottom: 16px;
     }
     .apps {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
     }
     .app-card {
       background: white;
       border-radius: 20px;
-      padding: 28px;
-      border: 1.5px solid #e8e4de;
+      padding: 24px;
+      border: 1.5px solid #ede8e2;
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 20px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.04);
       transition: box-shadow 0.2s, transform 0.2s;
+      text-decoration: none;
+      color: inherit;
     }
     .app-card:hover {
       box-shadow: 0 6px 24px rgba(0,0,0,0.08);
       transform: translateY(-2px);
     }
     .app-icon {
-      width: 64px; height: 64px;
+      width: 60px; height: 60px;
       border-radius: 16px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 30px;
+      font-size: 28px;
       flex-shrink: 0;
     }
     .app-icon.mise { background: #ede8f5; }
     .app-icon.cents { background: #e8f0ec; }
     .app-info { flex: 1; min-width: 0; }
     .app-name {
-      font-family: 'Libre Baskerville', Georgia, serif;
-      font-size: 20px;
-      font-weight: 700;
+      font-family: 'Nunito', sans-serif;
+      font-size: 19px;
+      font-weight: 800;
       color: #1a1a1a;
       margin-bottom: 4px;
     }
-    .app-name em {
-      font-style: italic;
-      font-weight: 400;
-    }
     .app-desc {
       font-size: 13px;
-      color: #777;
+      color: #888;
       line-height: 1.5;
-      margin-bottom: 16px;
     }
-    .launch-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 9px 18px;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: opacity 0.15s;
-      font-family: 'Inter', sans-serif;
+    .arrow {
+      font-size: 20px;
+      color: #ccc;
+      flex-shrink: 0;
     }
-    .launch-btn:hover { opacity: 0.85; }
-    .launch-btn.mise { background: #3d2f6b; color: white; }
-    .launch-btn.cents { background: #3d6b52; color: white; }
     footer {
       text-align: center;
       padding: 24px;
       font-size: 12px;
-      color: #bbb;
-      border-top: 1px solid #e8e4de;
+      color: #ccc;
     }
     @media (max-width: 480px) {
-      .app-card { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .app-icon { width: 52px; height: 52px; font-size: 24px; }
+      .app-card { gap: 14px; }
+      .app-icon { width: 50px; height: 50px; font-size: 24px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo"><img src="https://raw.githubusercontent.com/gyeung03/tinkerbot-studios/main/Tinkerbot.png" alt="Tinkerbot Studios"/></div>
+    <div class="logo">
+      <img src="https://raw.githubusercontent.com/gyeung03/tinkerbot-studios/main/Tinkerbot.png" alt="Tinkerbot Studios"/>
+    </div>
+    <div>
+      <div class="studio-name">Tinkerbot Studios</div>
+    </div>
   </header>
 
   <main>
     <div class="section-label">Apps</div>
     <div class="apps">
 
-      <div class="app-card">
+      <a class="app-card" href="https://mise-en-stock.vercel.app/" target="_blank">
         <div class="app-icon mise">🥫</div>
         <div class="app-info">
-          <div class="app-name">Mise <em>en Stock</em></div>
+          <div class="app-name">Mise en Stock</div>
           <div class="app-desc">Pantry and freezer inventory tracker. Scan barcodes, organize by category, and always know what's in stock.</div>
-          <a class="launch-btn mise" href="https://mise-en-stock.vercel.app/" target="_blank">Open App →</a>
         </div>
-      </div>
+        <div class="arrow">›</div>
+      </a>
 
-      <div class="app-card">
+      <a class="app-card" href="https://commoncents-tinkerbot.vercel.app" target="_blank">
         <div class="app-icon cents">¢</div>
         <div class="app-info">
-          <div class="app-name">Common <em>Cents</em></div>
+          <div class="app-name">Common Cents</div>
           <div class="app-desc">Shared expense tracker for two. Split bills, track balances, and settle up with ease.</div>
-          <a class="launch-btn cents" href="https://commoncents-tinkerbot.vercel.app" target="_blank">Open App →</a>
         </div>
-      </div>
+        <div class="arrow">›</div>
+      </a>
 
     </div>
   </main>
