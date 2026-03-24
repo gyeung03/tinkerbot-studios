@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/commoncents/:path*", "destination": "https://commoncents-tinkerbot.vercel.app/:path*" },
+    { "source": "/miseenstock/:path*", "destination": "https://mise-en-stock.vercel.app/:path*" }
+  ]
+}
